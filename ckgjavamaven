@@ -12,6 +12,11 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+        stage('Manual Approval')
+            steps {
+                input "proceed with deployment to production ?"
+            }
+        }
         stage('Code release') {
             steps {
                 archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false

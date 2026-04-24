@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+  label 'myfirstnode'
+}
 
     stages {
         stage('Maven installation') {
